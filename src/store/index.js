@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
 import reducers from 'store/reducers';
 
-const store = createStore(
+const store = (initialState = {}) => createStore(
   reducers,
-  {},
+  initialState,
   window.devToolsExtension && window.devToolsExtension()
 );
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from 'store';
 
-const root = (props) => {
+const root = ({ children, initialState }) => {
   return (
-    <Provider store={store}>
-      {props.children}
+    <Provider store={store(initialState)}>
+      {children}
     </Provider>
   );
 };
