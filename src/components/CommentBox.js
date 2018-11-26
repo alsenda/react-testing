@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 
+import requireAuth from 'hoc/requireAuth';
+
 class CommentBox extends Component {
   state = {
     comment: '',
@@ -9,7 +11,7 @@ class CommentBox extends Component {
 
   handleChange = event => {
     this.setState({ comment: event.target.value });
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -17,7 +19,7 @@ class CommentBox extends Component {
     this.props.saveComment(this.state.comment);
 
     this.setState({ comment: '' });
-  }
+  };
 
   render() {
     return (
@@ -37,4 +39,4 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null, actions)(CommentBox);
+export default connect(null, actions)(requireAuth(CommentBox));
