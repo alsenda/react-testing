@@ -1,12 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import App from 'components/App';
+
 import store from 'store';
 
-const root = ({ children, initialState={} }) => {
+const root = ({ initialState={} }) => {
   return (
-    <Provider store={store(initialState)}>
-      {children}
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store(initialState)}>
+        <Route component={App} />
+      </Provider>
+    </BrowserRouter>
   );
 };
 

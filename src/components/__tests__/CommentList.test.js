@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 it('creates one list element per comment', () => {
-  expect(wrapped.find('li').length).toEqual(initalState.comments.length);
+  expect(wrapped.find('.comment--list li').length).toEqual(initalState.comments.length);
 });
 
 it('shows the text for each comment', () => {
