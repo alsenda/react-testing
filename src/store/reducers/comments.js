@@ -4,8 +4,8 @@ export default function(state = [], action) {
   switch (action.type) {
     case SAVE_COMMENT:
       return [
-        action.payload,
         ...state,
+        action.payload,
       ];
     case FETCH_COMMENTS:
       const comments = action.payload.data.map(comment =>  comment.name);
